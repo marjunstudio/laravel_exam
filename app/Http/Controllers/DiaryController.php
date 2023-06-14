@@ -9,9 +9,8 @@ use Illuminate\Support\Facades\DB;
 class DiaryController extends Controller
 {
 	// Diary一覧表示
-	public function index(Request $request)
+	public function index()
 	{ 
-
 		$items = Diary::all();
 		return view('diary.index', ['items' => $items]);
 	}
