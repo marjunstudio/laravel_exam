@@ -17,8 +17,8 @@
     @yield('content')
   </main>
 
-  <footer>
-    <!-- フッターのコンテンツ -->
-  </footer>
+  {{-- フッターを表示 --}}
+  @component('components.footer')
+  @endcomponent  
 </body>
 </html>
