@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DiaryTableSeeder extends Seeder
+class DiariesTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -17,6 +17,6 @@ class DiaryTableSeeder extends Seeder
       'title' => 'テスト投稿',
       'content' => 'これはテスト用の投稿です。'
     ];
-    DB::table('diary')->insert($param);
+    DB::table('diaries')->insert($param);
   }
 }
