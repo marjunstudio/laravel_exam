@@ -31,4 +31,20 @@ class DiaryController extends Controller
 		$diary->fill($form)->save();
 		return redirect('/index');
 	}
+
+	public function edit(Request $request)
+	{
+		$diary = Diary::find($request->id);
+		return view('diary.edit', ['form' => $diary]);
+	}
+
+	public function update(Request $request)
+	{
+		$this->validate($request, Diary::$rules);
+		$diary = Diary::find($request->id);
+		$form = $request->all();
+		unset($form['_token']);
+		$diary->fill($form)->save();
+		return redirect('/index');
+	}
 }
