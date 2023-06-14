@@ -5,6 +5,7 @@
     body {font-size:16pt; color:#999; }
     h1 { font-size:100pt; text-align:right; color:#eee; margin:-40px 0px -50px 0px; }
     </style>
+    @vite('resources/css/app.css')
   </head>
   <body>
     <h1>DiaryIndex</h1>
