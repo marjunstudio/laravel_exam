@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', function () {
-    return view('diary.index');
-});
+Route::get('index', 'App\Http\Controllers\DiaryController@index');
