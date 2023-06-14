@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('index', 'App\Http\Controllers\DiaryController@index');
+Route::get('add', 'App\Http\Controllers\DiaryController@add');
+Route::post('add', 'App\Http\Controllers\DiaryController@create');
