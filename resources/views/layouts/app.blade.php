@@ -9,9 +9,9 @@
   <title>@yield('title')</title>
 </head>
 <body>
-  <header>
-    <!-- ヘッダーのコンテンツ -->
-  </header>
+  {{-- ヘッダーを表示 --}}
+  @component('components.header')
+  @endcomponent
 
   <main>
     @yield('content')
