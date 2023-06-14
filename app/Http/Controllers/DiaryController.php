@@ -25,7 +25,7 @@ class DiaryController extends Controller
 	// 保存処理
 	public function create(Request $request)
 	{
-		// $this->validate($request, Diary::$rules);
+		$this->validate($request, Diary::$rules);
 		$diary = new Diary;
 		$form = $request->all();
 		unset($form['_token']);
