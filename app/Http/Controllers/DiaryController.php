@@ -29,7 +29,7 @@ class DiaryController extends Controller
 		$form = $request->all();
 		unset($form['_token']);
 		$diary->fill($form)->save();
-		return redirect()->route('diary.index');
+		return redirect()->route('diary.index')->with('msg', '日記を投稿しました。');
 	}
 
 	// 日記更新フォームを表示
@@ -47,13 +47,13 @@ class DiaryController extends Controller
 		$form = $request->all();
 		unset($form['_token']);
 		$diary->fill($form)->save();
-		return redirect()->route('diary.index');
+		return redirect()->route('diary.index')->with('msg', '日記を更新しました。');
 	}
 
 	// 日記削除処理
 	public function destroy(Request $request)
 	{
 		Diary::find($request->id)->delete();
-		return redirect()->route('diary.index');
+		return redirect()->route('diary.index')->with('msg', '日記を削除しました。');
 	}
 }
