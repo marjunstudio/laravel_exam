@@ -18,7 +18,7 @@
                 <span class="mt-1 text-gray-500 text-sm">{{$item->created_at}}</span>
               </div>
               <div class="md:flex-grow">
-                <a href="/edit/{{$item->id}}">
+                <a href="{{ route('diary.edit', ['id'=>$item->id]) }}">
                   <h3 class="text-2xl font-medium text-gray-900 title-font mb-2 hover:text-blue-400">{{$item->title}}</h3>
                 </a>
                 <p class="leading-relaxed">{{$item->content}}</p>

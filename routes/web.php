@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', [DiaryController::class, 'index']);
-Route::get('add', [DiaryController::class, 'add']);
-Route::post('add', [DiaryController::class, 'create']);
-Route::get('edit/{id}', [DiaryController::class, 'edit']);
-Route::post('edit/{id}', [DiaryController::class, 'update']);
+Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
+Route::get('diary/create', [DiaryController::class, 'create'])->name('diary.create');
+Route::post('diary', [DiaryController::class, 'store'])->name('diary.store');
+Route::get('diary/{id}/edit', [DiaryController::class, 'edit'])->name('diary.edit');
+Route::put('diary/{id}', [DiaryController::class, 'update'])->name('diary.update');
 Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->name('diary.destroy');
 
