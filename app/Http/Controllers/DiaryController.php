@@ -11,7 +11,7 @@ class DiaryController extends Controller
 	// Diary一覧表示
 	public function index()
 	{ 
-		$items = Diary::all();
+		$items = Diary::orderBy('created_at', 'desc')->get();
 		return view('diary.index', ['items' => $items]);
 	}
 
@@ -26,6 +26,24 @@ class DiaryController extends Controller
 	{
 		$this->validate($request, Diary::$rules);
 		$diary = new Diary;
+		$form = $request->all();
+		unset($form['_token']);
+		$diary->fill($form)->save();
+		return redirect('/index');
+	}
+
+	// 日記更新フォームを表示
+	public function edit(Request $request)
+	{
+		$diary = Diary::find($request->id);
+		return view('diary.edit', ['form' => $diary]);
+	}
+
+	// 日記更新処理
+	public function update(Request $request)
+	{
+		$this->validate($request, Diary::$rules);
+		$diary = Diary::find($request->id);
 		$form = $request->all();
 		unset($form['_token']);
 		$diary->fill($form)->save();

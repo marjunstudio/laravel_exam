@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DiaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', 'App\Http\Controllers\DiaryController@index');
-Route::get('add', 'App\Http\Controllers\DiaryController@add');
-Route::post('add', 'App\Http\Controllers\DiaryController@create');
+Route::get('index', [DiaryController::class, 'index']);
+Route::get('add', [DiaryController::class, 'add']);
+Route::post('add', [DiaryController::class, 'create']);
+Route::get('edit/{id}', [DiaryController::class, 'edit']);
+Route::post('edit/{id}', [DiaryController::class, 'update']);
+
