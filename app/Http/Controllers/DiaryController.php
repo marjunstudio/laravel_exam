@@ -49,4 +49,11 @@ class DiaryController extends Controller
 		$diary->fill($form)->save();
 		return redirect('/index');
 	}
+
+	// 日記削除処理
+	public function destroy(Request $request)
+	{
+		Diary::find($request->id)->delete();
+		return redirect('/index');
+	}
 }

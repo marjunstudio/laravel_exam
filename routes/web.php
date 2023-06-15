@@ -23,4 +23,5 @@ Route::get('add', [DiaryController::class, 'add']);
 Route::post('add', [DiaryController::class, 'create']);
 Route::get('edit/{id}', [DiaryController::class, 'edit']);
 Route::post('edit/{id}', [DiaryController::class, 'update']);
+Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->name('diary.destroy');
 
