@@ -9,8 +9,9 @@
       <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">日記更新</h2>
     </div>
 
-    <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" method="POST" action="/edit/{{$form->id}}">
+    <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" method="POST" action="/diary/{{$form->id}}">
       @csrf
+      @method('PUT')
       <div class="sm:col-span-2">
         <label for="title" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">タイトル</label>
         <input name="title" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" value="{{$form->title}}" />

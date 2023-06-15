@@ -9,7 +9,7 @@
       <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">日記作成</h2>
     </div>
 
-    <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" method="POST" action="/add">
+    <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" method="POST" action="{{ route('diary.store') }}">
       @csrf
       <div class="sm:col-span-2">
         <label for="title" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">タイトル</label>

@@ -16,20 +16,20 @@ class DiaryController extends Controller
 	}
 
 	// 入力フォーム表示
-	public function add()
+	public function create()
 	{
-		return view('diary.add');
+		return view('diary.create');
 	}
 
 	// 保存処理
-	public function create(Request $request)
+	public function store(Request $request)
 	{
 		$this->validate($request, Diary::$rules);
 		$diary = new Diary;
 		$form = $request->all();
 		unset($form['_token']);
 		$diary->fill($form)->save();
-		return redirect('/index');
+		return redirect()->route('diary.index');
 	}
 
 	// 日記更新フォームを表示
@@ -47,13 +47,13 @@ class DiaryController extends Controller
 		$form = $request->all();
 		unset($form['_token']);
 		$diary->fill($form)->save();
-		return redirect('/index');
+		return redirect()->route('diary.index');
 	}
 
 	// 日記削除処理
 	public function destroy(Request $request)
 	{
 		Diary::find($request->id)->delete();
-		return redirect('/index');
+		return redirect()->route('diary.index');
 	}
 }
