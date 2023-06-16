@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Diary;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\DiaryRequest;
 
 class DiaryController extends Controller
 {
@@ -22,9 +22,8 @@ class DiaryController extends Controller
 	}
 
 	// 保存処理
-	public function store(Request $request)
+	public function store(DiaryRequest $request)
 	{
-		$this->validate($request, Diary::$rules);
 		$diary = new Diary;
 		$form = $request->all();
 		unset($form['_token']);
@@ -40,9 +39,8 @@ class DiaryController extends Controller
 	}
 
 	// 日記更新処理
-	public function update(Request $request)
+	public function update(DiaryRequest $request)
 	{
-		$this->validate($request, Diary::$rules);
 		$diary = Diary::find($request->id);
 		$form = $request->all();
 		unset($form['_token']);
