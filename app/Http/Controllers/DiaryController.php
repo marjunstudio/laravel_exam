@@ -31,6 +31,12 @@ class DiaryController extends Controller
 		return redirect()->route('diary.index')->with('msg', '日記を投稿しました。');
 	}
 
+	public function show(Request $request)
+	{
+		$diary = Diary::find($request->id);
+		return view('diary.show', ['diary'=> $diary]);
+	}
+
 	// 日記更新フォームを表示
 	public function edit(Request $request)
 	{
