@@ -24,7 +24,7 @@
                 <p class="leading-relaxed">{{$item->content}}</p>
               </div>
               <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                <form action="{{ route('diary.destroy', ['id'=>$item->id]) }}" method="POST">
+                <form action="{{ route('diary.destroy', ['id'=>$item->id]) }}" method="POST", onsubmit="return confirm('本当に削除しますか？')">
                   @csrf
                   @method('DELETE')
                   <button class="font-semibold title-font text-gray-700 hover:text-red-400">削除</button>
