@@ -26,3 +26,5 @@ Route::get('diary/{id}/edit', [DiaryController::class, 'edit'])->name('diary.edi
 Route::put('diary/{id}', [DiaryController::class, 'update'])->name('diary.update');
 Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->name('diary.destroy');
 
+
+Auth::routes();
