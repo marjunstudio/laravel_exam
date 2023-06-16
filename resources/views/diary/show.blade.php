@@ -23,16 +23,22 @@
             <p class="leading-relaxed text-lg mb-4">{{$diary->content}}</p>
           </div>
           <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex items-end">
-            <div class="bg-indigo-300 rounded-md mx-3 p-2">
+            {{-- 編集ボタン --}}
+            <div class="m-3">
               <a href="{{ route('diary.edit', ['id'=>$diary->id]) }}">
-                <p class="font-semibold title-font text-gray-700 hover:text-indigo-400">編集</p>
+                <p class="font-semibold title-font text-gray-700 hover:text-indigo-400">
+                  <i class="fa-solid fa-pen-to-square fa-lg"></i
+                ></p>
               </a>
             </div>
-            <div class="bg-indigo-300 rounded-md mx-3 p-2">
+            {{-- 削除ボタン --}}
+            <div class="m-3">
               <form action="{{ route('diary.destroy', ['id'=>$diary->id]) }}" method="POST", onsubmit="return confirm('本当に削除しますか？')">
                 @csrf
                 @method('DELETE')
-                <button class="font-semibold title-font text-gray-700 hover:text-red-400">削除</button>
+                <button class="font-semibold title-font text-gray-700 hover:text-red-400">
+                  <i class="fa-solid fa-trash fa-lg"></i>
+                </button>
               </form>
             </div>
           </div>
