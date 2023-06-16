@@ -13,6 +13,13 @@
   @component('components.header')
   @endcomponent
 
+  {{-- フラッシュメッセージがある場合表示 --}}
+  @if (session()->exists('msg'))
+    @component('components.messages')
+    @endcomponent
+  @endif
+
+
   <main>
     @yield('content')
   </main>
