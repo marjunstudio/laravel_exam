@@ -9,10 +9,19 @@ use App\Http\Requests\DiaryRequest;
 class DiaryController extends Controller
 {
 	// Diary一覧表示
-	public function index()
-	{ 
-		$items = Diary::orderBy('created_at', 'desc')->get();
-		return view('diary.index', ['items' => $items]);
+	public function index(Request $request)
+	{
+		$keyword = $request->input('q');
+		$query = Diary::orderBy('created_at', 'desc');
+
+		// 検索された場合クエリ実行
+		if(!empty($keyword)) {
+				$query->where('title', 'LIKE', "%{$keyword}%")
+						->orWhere('content', 'LIKE', "%{$keyword}%");
+		}
+
+		$items = $query->get();
+		return view('diary.index', compact('items', 'keyword'));
 	}
 
 	// 入力フォーム表示
@@ -25,9 +34,7 @@ class DiaryController extends Controller
 	public function store(DiaryRequest $request)
 	{
 		$diary = new Diary;
-		$form = $request->all();
-		unset($form['_token']);
-		$diary->fill($form)->save();
+		$diary->fill($request->validated())->save();
 		return redirect()->route('diary.index')->with('msg', '日記を投稿しました。');
 	}
 
@@ -48,9 +55,7 @@ class DiaryController extends Controller
 	public function update(DiaryRequest $request)
 	{
 		$diary = Diary::find($request->id);
-		$form = $request->all();
-		unset($form['_token']);
-		$diary->fill($form)->save();
+		$diary->fill($request->validated())->save();
 		return redirect()->route('diary.index')->with('msg', '日記を更新しました。');
 	}
 

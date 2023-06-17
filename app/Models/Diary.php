@@ -19,5 +19,5 @@ class Diary extends Model
 	protected $fillable = [
 		'title',
 		'content',
-	];    
+	];
 }
