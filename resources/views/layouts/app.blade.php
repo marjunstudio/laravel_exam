@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<title>@yield('title')</title>
 
-  @vite('resources/css/app.css')
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('title')</title>
+	<!-- Fonts -->
+	<link rel="dns-prefetch" href="//fonts.bunny.net">
+	<link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+	<!-- Scripts -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	@vite('resources/css/app.css')
 </head>
 <body>
-  {{-- ヘッダーを表示 --}}
-  @component('components.header')
-  @endcomponent
+	{{-- ヘッダーを表示 --}}
+	@component('components.header')
+	@endcomponent
 
-  {{-- フラッシュメッセージがある場合表示 --}}
-  @if (session()->exists('msg'))
-    @component('components.messages')
-    @endcomponent
-  @endif
+	{{-- フラッシュメッセージがある場合表示 --}}
+	@if (session()->exists('msg'))
+		@component('components.messages')
+		@endcomponent
+	@endif
 
-
-  <main>
-    @yield('content')
-  </main>
+	{{-- メインコンテンツを表示 --}}
+	<main>
+		@yield('content')
+	</main>
 
   {{-- フッターを表示 --}}
   @component('components.footer')
