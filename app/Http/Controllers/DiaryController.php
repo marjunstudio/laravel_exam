@@ -34,9 +34,7 @@ class DiaryController extends Controller
 	public function store(DiaryRequest $request)
 	{
 		$diary = new Diary;
-		$form = $request->all();
-		unset($form['_token']);
-		$diary->fill($form)->save();
+		$diary->fill($request->validated())->save();
 		return redirect()->route('diary.index')->with('msg', '日記を投稿しました。');
 	}
 
@@ -57,9 +55,7 @@ class DiaryController extends Controller
 	public function update(DiaryRequest $request)
 	{
 		$diary = Diary::find($request->id);
-		$form = $request->all();
-		unset($form['_token']);
-		$diary->fill($form)->save();
+		$diary->fill($request->validated())->save();
 		return redirect()->route('diary.index')->with('msg', '日記を更新しました。');
 	}
 
