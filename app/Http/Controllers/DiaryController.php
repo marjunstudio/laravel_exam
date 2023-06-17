@@ -9,10 +9,19 @@ use App\Http\Requests\DiaryRequest;
 class DiaryController extends Controller
 {
 	// Diary一覧表示
-	public function index()
-	{ 
-		$items = Diary::orderBy('created_at', 'desc')->get();
-		return view('diary.index', ['items' => $items]);
+	public function index(Request $request)
+	{
+		$keyword = $request->input('q');
+		$query = Diary::orderBy('created_at', 'desc');
+
+		// 検索された場合クエリ実行
+		if(!empty($keyword)) {
+				$query->where('title', 'LIKE', "%{$keyword}%")
+						->orWhere('content', 'LIKE', "%{$keyword}%");
+		}
+
+		$items = $query->get();
+		return view('diary.index', compact('items', 'keyword'));
 	}
 
 	// 入力フォーム表示
