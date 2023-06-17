@@ -35,6 +35,10 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            // Fortify用のルーティングを設定
+            Route::prefix('')
+                ->group(base_path('routes/fortify.php'));
         });
     }
 }

@@ -27,5 +27,3 @@ Route::put('diary/{id}', [DiaryController::class, 'update'])->middleware('auth')
 Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('auth')->name('diary.destroy');
 Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 
-
-Auth::routes();
