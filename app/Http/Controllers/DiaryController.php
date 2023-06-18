@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Diary;
 use Illuminate\Http\Request;
 use App\Http\Requests\DiaryRequest;
+use Illuminate\Support\Facades\Auth;
 
 class DiaryController extends Controller
 {
@@ -20,7 +21,7 @@ class DiaryController extends Controller
 						->orWhere('content', 'LIKE', "%{$keyword}%");
 		}
 
-		$items = $query->get();
+		$items = $query->with('user')->get();
 		return view('diary.index', compact('items', 'keyword'));
 	}
 
@@ -34,13 +35,15 @@ class DiaryController extends Controller
 	public function store(DiaryRequest $request)
 	{
 		$diary = new Diary;
-		$diary->fill($request->validated())->save();
-		return redirect()->route('diary.index')->with('msg', '日記を投稿しました。');
+		$diary->fill($request->validated());
+		$diary->user_id = Auth::id();
+		$diary->save();
+		return redirect()->route('diary.show', ['id' => $diary->id])->with('msg', '日記を投稿しました。');
 	}
 
 	public function show(Request $request)
 	{
-		$diary = Diary::find($request->id);
+		$diary = Diary::with('user')->find($request->id);
 		return view('diary.show', ['diary'=> $diary]);
 	}
 
@@ -56,13 +59,21 @@ class DiaryController extends Controller
 	{
 		$diary = Diary::find($request->id);
 		$diary->fill($request->validated())->save();
-		return redirect()->route('diary.index')->with('msg', '日記を更新しました。');
+		return redirect()->route('diary.show', ['id' => $diary->id])->with('msg', '日記を更新しました。');
 	}
 
 	// 日記削除処理
 	public function destroy(Request $request)
 	{
-		Diary::find($request->id)->delete();
+		$diary = Diary::find($request->id);
+
+    // ログインユーザーと投稿の作成ユーザーを比較
+    if (Auth::id() !== $diary->user_id) {
+        return redirect()->route('diary.index')->with('msg', '削除権限がありません。');
+    }
+
+    $diary->delete();
+
 		return redirect()->route('diary.index')->with('msg', '日記を削除しました。');
 	}
 }
