@@ -16,7 +16,7 @@ use App\Http\Controllers\DiaryController;
 
 Route::get('/', function () {
     return view('home.static');
-});
+})->middleware('guest');;
 
 Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
 Route::get('diary/create', [DiaryController::class, 'create'])->middleware('auth')->name('diary.create');
