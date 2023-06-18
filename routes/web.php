@@ -15,7 +15,7 @@ use App\Http\Controllers\DiaryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.static');
 });
 
 Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
