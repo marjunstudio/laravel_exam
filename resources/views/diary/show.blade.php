@@ -14,7 +14,7 @@
             <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
             </div>
             <div class="flex flex-col items-center text-center justify-center">
-              <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">ユーザー名</h2>
+              <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">{{$diary->user->name}}</h2>
               <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
               <p class="text-base">投稿日：{{$diary->created_at}}</p>
             </div>
@@ -23,24 +23,26 @@
             <p class="leading-relaxed text-lg mb-4">{{$diary->content}}</p>
           </div>
           <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex items-end">
-            {{-- 編集ボタン --}}
-            <div class="m-3">
-              <a href="{{ route('diary.edit', ['id'=>$diary->id]) }}">
-                <p class="font-semibold title-font text-gray-700 hover:text-indigo-400">
-                  <i class="fa-solid fa-pen-to-square fa-lg"></i
-                ></p>
-              </a>
-            </div>
-            {{-- 削除ボタン --}}
-            <div class="m-3">
-              <form action="{{ route('diary.destroy', ['id'=>$diary->id]) }}" method="POST", onsubmit="return confirm('本当に削除しますか？')">
-                @csrf
-                @method('DELETE')
-                <button class="font-semibold title-font text-gray-700 hover:text-red-400">
-                  <i class="fa-solid fa-trash fa-lg"></i>
-                </button>
-              </form>
-            </div>
+            @if ($diary->user->id === auth()->id())
+              {{-- 編集ボタン --}}
+              <div class="m-3">
+                <a href="{{ route('diary.edit', ['id'=>$diary->id]) }}">
+                  <p class="font-semibold title-font text-gray-700 hover:text-indigo-400">
+                    <i class="fa-solid fa-pen-to-square fa-lg"></i
+                  ></p>
+                </a>
+              </div>
+              {{-- 削除ボタン --}}
+              <div class="m-3">
+                <form action="{{ route('diary.destroy', ['id'=>$diary->id]) }}" method="POST", onsubmit="return confirm('本当に削除しますか？')">
+                  @csrf
+                  @method('DELETE')
+                  <button class="font-semibold title-font text-gray-700 hover:text-red-400">
+                    <i class="fa-solid fa-trash fa-lg"></i>
+                  </button>
+                </form>
+              </div>
+            @endif
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@
             @foreach ($items as $item)
             <div class="py-6 flex flex-wrap md:flex-nowrap">
               <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                <span class="font-semibold title-font text-gray-700">ユーザー名</span>
+                <span class="font-semibold title-font text-gray-700">{{$item->user->name}}</span>
               </div>
               <div class="md:flex-grow">
                 <a href="{{ route('diary.show', ['id'=>$item->id]) }}">

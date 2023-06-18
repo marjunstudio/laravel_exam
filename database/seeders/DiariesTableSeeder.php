@@ -15,7 +15,8 @@ class DiariesTableSeeder extends Seeder
   {
     $param = [
       'title' => 'テスト投稿',
-      'content' => 'これはテスト用の投稿です。'
+      'content' => 'これはテスト用の投稿です。',
+      'user_id' => 1
     ];
     DB::table('diaries')->insert($param);
   }

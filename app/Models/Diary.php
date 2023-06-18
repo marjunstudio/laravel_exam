@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
+	public function user()
+	{
+			return $this->belongsTo(User::class);
+	}
+
 	protected $guarded = array('id');
 
 	// Diaryモデルのバリデーションを定義
