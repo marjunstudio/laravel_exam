@@ -55,12 +55,15 @@
                     <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                       ID
                     </th>
-                    @foreach ($colNames as $colName)
-                      <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        {{$colName}}
-                      </th>
-                  @endforeach
-
+                    <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      タイトル
+                    </th>
+                    <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      コンテンツ
+                    </th>                    
+                    <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      ユーザーID
+                    </th>                    
                     <th scope="col" class="relative py-3.5 px-4">
                       <span class="sr-only">Edit</span>
                     </th>
@@ -78,7 +81,7 @@
                           <h2 class="font-medium text-gray-800 dark:text-white ">{{$item->id}}</h2>
                         </div>
                       </td>
-                      <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                      <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
                           <h2 class="font-medium text-gray-800 dark:text-white ">{{$item->title}}</h2>
                         </div>

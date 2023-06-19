@@ -11,14 +11,12 @@ class DashboardController extends Controller
     public function user_index()
     {
         $items = User::all();
-        $colNames = $items->first()->getFillable();
-        return view('dashboard.user_index', compact('items', 'colNames'));
+        return view('dashboard.user_index', ['items' => $items]);
     }
 
     public function diary_index()
     {
         $items = Diary::all();
-        $colNames = $items->first()->getFillable();
-        return view('dashboard.diary_index', compact('items', 'colNames'));
+        return view('dashboard.diary_index', ['items' => $items]);
     }
 }
