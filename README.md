@@ -8,10 +8,8 @@
 ### ■メインのターゲットユーザー
 - 日記を書くのが好きな人
 - 思い出を他の人と共有したい人
-　
 
-Uploading 日記一覧 - 17 June 2023.mp4…
-
+![chrome-capture-2023-5-20](https://github.com/marjunstudio/laravel_exam/assets/92660730/5603eb6e-0cae-47bf-80ae-ccd7ffed42ea)
 
 
 ### ■実装済みの機能
