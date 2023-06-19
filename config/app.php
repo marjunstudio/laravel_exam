@@ -170,6 +170,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         // Fortify用
         App\Providers\FortifyServiceProvider::class,
+        // Laravel Excel用
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -184,7 +186,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        // Laravel Excel用
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];
