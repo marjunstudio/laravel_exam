@@ -9,20 +9,6 @@
       <h2 class="text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">ユーザープロフィール</h2>
     </div>
 
-    {{-- csvインポート・エクスポート --}}
-    <div class="flex justify-end">
-      <div>
-        <form action="{{ route('diary_csv.import') }}" method="POST" enctype="multipart/form-data" class="">
-          @csrf
-          <input type="file" id="file" name="file" class="form-control" />
-          <button class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
-            インポート
-          </button>
-        </form> 
-      </div>
-        <a class="text-white bg-gray-500 border-0 py-2 px-8 ml-5 focus:outline-none hover:bg-gray-600 rounded text-lg" href="{{ route('diary_csv.export') }}">エクスポート</a>
-    </div>
-
     {{-- ユーザー情報 --}}
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">

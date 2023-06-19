@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,11 @@ Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('au
 Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 
 // User関係
+Route::get('/user/csv-export', [UserController::class, 'csvExport'])->name('user_csv.export');
+Route::post('/user/csv-import', [UserController::class, 'csvImport'])->name('user_csv.import');
 Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('user.profile');
+
+// ダッシュボード
+Route::get('dashboard/user', [DashboardController::class, 'user_index'])->name('dashboard.user_index');
+Route::get('dashboard/diary', [DashboardController::class, 'diary_index'])->name('dashboard.diary_index');
+
