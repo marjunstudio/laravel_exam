@@ -21,12 +21,9 @@
         @endif
       {{-- ログイン済みの場合 --}}
       @else
-        <form action="{{ route('logout') }}" method="POST">
-          @csrf
-          <button class="font-semibold title-font text-gray-700 hover:text-red-400">
-            ログアウト
-          </button>
-        </form>
+        <a href="/profile" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+          <i class="fa-regular fa-circle-user fa-2xl"></i>
+        </a>
       @endguest
     </div>
   </div>
