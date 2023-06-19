@@ -37,6 +37,8 @@ Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('au
 Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 
 // User関係
+Route::get('/user/csv-export', [UserController::class, 'csvExport'])->name('user_csv.export');
+Route::post('/user/csv-import', [UserController::class, 'csvImport'])->name('user_csv.import');
 Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('user.profile');
 
 // ダッシュボード
