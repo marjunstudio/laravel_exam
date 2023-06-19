@@ -1,66 +1,54 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MyDiary
+日々の出来事を投稿し、他のユーザーと共有するアプリ
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+### ■サービス概要
+毎日の出来事を、日記として投稿し、他のユーザーと共有することで、喜びや悲しみを共有する
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### ■メインのターゲットユーザー
+- 日記を書くのが好きな人
+- 思い出を他の人と共有したい人
+　
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Uploading 日記一覧 - 17 June 2023.mp4…
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ■実装済みの機能
+- ユーザー登録機能
+	- 新規ユーザー作成
+	- ログイン機能
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- 吹奏楽曲検索機能
+	- フリーワード検索（楽曲名、カテゴリ、作曲者名から検索可能）
+	- カテゴリから検索
+	- 作曲者名から検索
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+　- お気に入り楽曲ランキング（ユーザーがお気に入り登録した楽曲のランキングが見れる）
 
-## Laravel Sponsors
+- コメント投稿機能
+	- 各楽曲の思い出や感想を他のユーザー共有することができる
+　
+- 管理者機能
+	- 登録ユーザーデータの追加、編集、削除機能
+	- 吹奏楽曲データの追加、編集、削除機能
+	- いいねされたデータの追加、編集、削除機能
+	- コメントデータの追加、編集、削除機能
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### ■実装予定の機能
+- コメントのリアルタイム更新
+- 検索結果表示をSPAで行う
 
-### Premium Partners
+### ■なぜこのサービスを作りたいのか？
+私は高校生の時に友人に誘われ吹奏楽部に入部をしました。そんな吹奏楽部では毎年、「吹奏楽コンクール」や「定期演奏会」など大きなイベントがあります。
+演奏する楽曲は生徒が意見を出し合って、決めることが多いです。楽曲を探す際にはインターネットで検索したりYoutubeで「吹奏楽　コンクール曲」などのワードで検索をしますが、
+吹奏楽曲検索に特化しているわけではないので関係の無い曲が表示されたり、カテゴライズされていないため実際に、試聴してみるまでどんな楽曲がわからないという悩みがありました。
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+そんな時に簡単に吹奏楽曲の検索をスムーズに行うことができ、探している楽曲にたどり着くことができればいいのになと思っていました。
 
-## Contributing
+こんな経験から、自分と同じように悩む吹奏楽初心者の助けとなるアプリを作ろうと思い作成いたしました！
+### ■画面遷移図
+https://www.figma.com/file/FKVg4NjENeoZkKKf839zZ3/Brass_Search?node-id=0%3A1&t=EjZn6QMq0wFwpv5Z-0
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### ■ER図
+https://drive.google.com/file/d/1WY3O_7o_UxLmcmNx0HAAVnUKGBBp9Pd-/view
