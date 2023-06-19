@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,8 @@ Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 
 // User関係
 Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('user.profile');
+
+// ダッシュボード
+Route::get('dashboard/user', [DashboardController::class, 'user_index'])->name('dashboard.user_index');
+Route::get('dashboard/diary', [DashboardController::class, 'diary_index'])->name('dashboard.diary_index');
+
