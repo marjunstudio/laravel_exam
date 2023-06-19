@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('home.static');
 })->middleware('guest');;
 
+// Laravel Excel用
+Route::get('/diary/csv-export', [DiaryController::class, 'csvExport'])->name('diary_csv.export');
+
 Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
 Route::get('diary/create', [DiaryController::class, 'create'])->middleware('auth')->name('diary.create');
 Route::post('diary', [DiaryController::class, 'store'])->middleware('auth')->name('diary.store');
@@ -26,4 +29,3 @@ Route::get('diary/{id}/edit', [DiaryController::class, 'edit'])->middleware('aut
 Route::put('diary/{id}', [DiaryController::class, 'update'])->middleware('auth')->name('diary.update');
 Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('auth')->name('diary.destroy');
 Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
-

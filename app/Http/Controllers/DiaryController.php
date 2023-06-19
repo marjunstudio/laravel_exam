@@ -6,6 +6,9 @@ use App\Models\Diary;
 use Illuminate\Http\Request;
 use App\Http\Requests\DiaryRequest;
 use Illuminate\Support\Facades\Auth;
+// Laravel Excel用
+use App\Exports\DiariesExport;
+use Excel;
 
 class DiaryController extends Controller
 {
@@ -75,5 +78,10 @@ class DiaryController extends Controller
     $diary->delete();
 
 		return redirect()->route('diary.index')->with('msg', '日記を削除しました。');
+	}
+
+	public function csvExport(): \Symfony\Component\HttpFoundation\BinaryFileResponse
+	{
+		return Excel::download(new DiariesExport, 'diaries.csv');
 	}
 }
