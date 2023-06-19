@@ -24,6 +24,7 @@ Route::get('/', function () {
 // Diary関係
 // Laravel Excel用
 Route::get('/diary/csv-export', [DiaryController::class, 'csvExport'])->name('diary_csv.export');
+Route::post('/diary/csv-import', [DiaryController::class, 'csvImport'])->name('diary_csv.import');
 
 Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
 Route::get('diary/create', [DiaryController::class, 'create'])->middleware('auth')->name('diary.create');

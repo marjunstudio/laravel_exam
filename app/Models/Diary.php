@@ -18,11 +18,13 @@ class Diary extends Model
 	public static $rules = array(
 		'title' => 'required|min:3',
 		'content' => 'required|max:200',
+		'user_id' => 'requierd',
 	);
 
 	use HasFactory;
 	protected $fillable = [
 		'title',
 		'content',
+		'user_id'
 	];
 }
