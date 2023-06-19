@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\DiaryRequest;
 use Illuminate\Support\Facades\Auth;
 // Laravel Excel用
+use App\Imports\DiariesImport;
 use App\Exports\DiariesExport;
-use Excel;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class DiaryController extends Controller
 {
@@ -80,8 +82,15 @@ class DiaryController extends Controller
 		return redirect()->route('diary.index')->with('msg', '日記を削除しました。');
 	}
 
+	// CSVをエクスポート
 	public function csvExport(): \Symfony\Component\HttpFoundation\BinaryFileResponse
 	{
 		return Excel::download(new DiariesExport, 'diaries.csv');
 	}
+
+	public function csvImport(Request $request){
+		$file = $request->file('file');
+		Excel::import(new DiariesImport, $file);
+    return redirect('profile')->with('msg', 'CSVファイルをインポートしました。');
+}
 }
