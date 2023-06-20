@@ -32,6 +32,6 @@ class UserController extends Controller
 	{
 		$file = $request->file('file');
 		Excel::import(new UsersImport, $file);
-		return redirect('profile')->with('msg', 'CSVファイルをインポートしました。');
+		return redirect('dashboard/user')->with('msg', 'CSVファイルをインポートしました。');
 	}
 }

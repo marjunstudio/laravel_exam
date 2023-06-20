@@ -91,6 +91,6 @@ class DiaryController extends Controller
 	public function csvImport(Request $request){
 		$file = $request->file('file');
 		Excel::import(new DiariesImport, $file);
-    return redirect('profile')->with('msg', 'CSVファイルをインポートしました。');
+    return redirect('dashboard/diary')->with('msg', 'CSVファイルをインポートしました。');
 }
 }

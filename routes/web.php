@@ -29,11 +29,11 @@ Route::post('/diary/csv-import', [DiaryController::class, 'csvImport'])->name('d
 
 Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
 Route::get('diary/create', [DiaryController::class, 'create'])->middleware('auth')->name('diary.create');
-Route::post('diary', [DiaryController::class, 'store'])->middleware('admin.auth')->name('diary.store');
+Route::post('diary', [DiaryController::class, 'store'])->middleware('auth')->name('diary.store');
 Route::get('diary/{id}', [DiaryController::class, 'show'])->name('diary.show');
-Route::get('diary/{id}/edit', [DiaryController::class, 'edit'])->middleware('admin.auth')->name('diary.edit');
+Route::get('diary/{id}/edit', [DiaryController::class, 'edit'])->middleware('auth')->name('diary.edit');
 Route::put('diary/{id}', [DiaryController::class, 'update'])->middleware('auth')->name('diary.update');
-Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('admin.auth')->name('diary.destroy');
+Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('auth')->name('diary.destroy');
 Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 
 // User関係
