@@ -9,44 +9,29 @@
 - 日記を書くのが好きな人
 - 思い出を他の人と共有したい人
 
-![chrome-capture-2023-5-20](https://github.com/marjunstudio/laravel_exam/assets/92660730/5603eb6e-0cae-47bf-80ae-ccd7ffed42ea)
-
-
 ### ■実装済みの機能
 - ユーザー登録機能
 	- 新規ユーザー作成
 	- ログイン機能
+    ![ログイン](https://github.com/marjunstudio/laravel_exam/assets/92660730/dd6bdc38-8177-4605-a69f-3ccc4d385e1f)
 
-- 吹奏楽曲検索機能
-	- フリーワード検索（楽曲名、カテゴリ、作曲者名から検索可能）
-	- カテゴリから検索
-	- 作曲者名から検索
+- 日記関連機能
+    - 日記投稿
+    ![日記投稿](https://github.com/marjunstudio/laravel_exam/assets/92660730/8a00e780-245e-4f70-b55c-8f7288bc7a45)
 
-　- お気に入り楽曲ランキング（ユーザーがお気に入り登録した楽曲のランキングが見れる）
+    - 日記更新
+    ![日記更新](https://github.com/marjunstudio/laravel_exam/assets/92660730/83c784bb-8d27-4209-834c-def58a0db609)
 
-- コメント投稿機能
-	- 各楽曲の思い出や感想を他のユーザー共有することができる
-　
-- 管理者機能
-	- 登録ユーザーデータの追加、編集、削除機能
-	- 吹奏楽曲データの追加、編集、削除機能
-	- いいねされたデータの追加、編集、削除機能
-	- コメントデータの追加、編集、削除機能
+    - 日記削除
+    ![日記削除](https://github.com/marjunstudio/laravel_exam/assets/92660730/e3db4c9c-a4be-4dd3-b134-bd418858ec7d)
+
+- 管理画面
+    - csvのインポート
+  ![csvインポート](https://github.com/marjunstudio/laravel_exam/assets/92660730/9b276f50-c889-4f25-8b30-458691b69a27)
+
+    - csvのエクスポート
+- 投稿検索機能（タイトルと内容からあいまい検索）
+![検索](https://github.com/marjunstudio/laravel_exam/assets/92660730/615898c8-5f17-44be-a451-8e64018a1bc5)
 
 ### ■実装予定の機能
-- コメントのリアルタイム更新
-- 検索結果表示をSPAで行う
-
-### ■なぜこのサービスを作りたいのか？
-私は高校生の時に友人に誘われ吹奏楽部に入部をしました。そんな吹奏楽部では毎年、「吹奏楽コンクール」や「定期演奏会」など大きなイベントがあります。
-演奏する楽曲は生徒が意見を出し合って、決めることが多いです。楽曲を探す際にはインターネットで検索したりYoutubeで「吹奏楽　コンクール曲」などのワードで検索をしますが、
-吹奏楽曲検索に特化しているわけではないので関係の無い曲が表示されたり、カテゴライズされていないため実際に、試聴してみるまでどんな楽曲がわからないという悩みがありました。
-
-そんな時に簡単に吹奏楽曲の検索をスムーズに行うことができ、探している楽曲にたどり着くことができればいいのになと思っていました。
-
-こんな経験から、自分と同じように悩む吹奏楽初心者の助けとなるアプリを作ろうと思い作成いたしました！
-### ■画面遷移図
-https://www.figma.com/file/FKVg4NjENeoZkKKf839zZ3/Brass_Search?node-id=0%3A1&t=EjZn6QMq0wFwpv5Z-0
-
-### ■ER図
-https://drive.google.com/file/d/1WY3O_7o_UxLmcmNx0HAAVnUKGBBp9Pd-/view
+- 管理者権限
