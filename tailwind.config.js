@@ -9,5 +9,10 @@ export default {
     extend: {},
   },
   plugins: [],
+  purge: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
 }
 
