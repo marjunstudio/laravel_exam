@@ -12,15 +12,15 @@ class UsersTableSeeder extends Seeder
         // サンプルユーザーデータを生成
         $users = [
             [
-                'name' => 'John Doe',
-                'email' => 'johndoe@example.com',
+                'name' => '山田 太郎',
+                'email' => 'yamada@example.com',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Jane Smith',
-                'email' => 'janesmith@example.com',
+                'name' => '鈴木 一郎',
+                'email' => 'suzuki@example.com',
                 'password' => Hash::make('password'),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -32,4 +32,3 @@ class UsersTableSeeder extends Seeder
         User::insert($users);
     }
 }
-
