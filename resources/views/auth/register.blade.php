@@ -3,7 +3,6 @@
 @section('title', '会員登録')
 
 @section('content')
-<script src="https://cdn.tailwindcss.com"></script>
 <body class="bg-gray-100">
   <div class="container mx-auto py-8">
     <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">会員登録</h2>
