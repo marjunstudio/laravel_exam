@@ -24,7 +24,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
           <button @click="open = !open" class="flex flex-row items-center w-full bg-transparent rounded-full md:w-auto md:inline hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-            <div class="w-14 h-14 rounded-full inline-flex items-center justify-center">
+            <div class="w-14 h-14 rounded-full inline-flex items-center justify-center bg-gray-200 hover:bg-gray-300">
               <img src="{{ asset(Auth::user()->image) }}" alt="">
             </div>
           </button>
