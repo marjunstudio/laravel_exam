@@ -40,6 +40,8 @@ Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 Route::get('/user/csv-export', [UserController::class, 'csvExport'])->name('user_csv.export');
 Route::post('/user/csv-import', [UserController::class, 'csvImport'])->name('user_csv.import');
 Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('user.profile');
+Route::get('profile/{id}/edit', [UserController::class, 'edit'])->middleware('auth')->name('user.edit');
+Route::put('profile/{id}', [UserController::class, 'update'])->middleware('auth')->name('user.update');
 
 // ダッシュボード
 Route::get('dashboard/user', [DashboardController::class, 'user_index'])->name('dashboard.user_index');

@@ -13,6 +13,15 @@
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
         <div class="flex mx-auto border-slate-300">
+          {{-- プロフィールアイコン --}}
+          <div class="p-2">
+            <div class="relative">
+              <p class="w-full rounded focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <img src="{{asset($user->image)}}" class="w-14 h-14">
+              </p>
+            </div>
+          </div>
+          {{-- ユーザー名 --}}
           <div class="p-2 mr-10 ">
             <div class="relative">
               <label for="name" class="leading-7 text-sm text-gray-600">ユーザー名</label>
@@ -21,6 +30,7 @@
               </p>
             </div>
           </div>
+          {{-- メールアドレス --}}
           <div class="p-2">
             <div class="relative">
               <label for="email" class="leading-7 text-sm text-gray-600">メールアドレス</label>
@@ -30,6 +40,9 @@
             </div>
           </div>
         </div>
+        {{-- プロフィール編集ボタン --}}
+        <a href="{{ route('user.edit', ['id'=>$user->id]) }}">編集</a>
+
         <div class="flex flex-col text-center w-full mt-12">
           <h1 class="sm:text-2xl text-xl font-medium title-font mb-4 text-gray-900">投稿した日記</h1>
         </div>
