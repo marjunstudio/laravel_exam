@@ -43,9 +43,14 @@ class DiaryController extends Controller
 		$diary->fill($request->validated());
 		$diary->user_id = Auth::id();
 		$diary->save();
-		return redirect()->route('diary.show', ['id' => $diary->id])->with('msg', '日記を投稿しました。');
+
+		return redirect()
+			->route('diary.show', ['id' => $diary->id])
+			->with('msg', '日記を投稿しました。')
+			->withInput();
 	}
 
+	// 日記詳細を表示
 	public function show(Request $request)
 	{
 		$diary = Diary::with('user')->find($request->id);
@@ -71,12 +76,6 @@ class DiaryController extends Controller
 	public function destroy(Request $request)
 	{
 		$diary = Diary::find($request->id);
-
-    // ログインユーザーと投稿の作成ユーザーを比較
-    if (Auth::id() !== $diary->user_id) {
-        return redirect()->route('diary.index')->with('msg', '削除権限がありません。');
-    }
-
     $diary->delete();
 
 		return redirect()->route('diary.index')->with('msg', '日記を削除しました。');
