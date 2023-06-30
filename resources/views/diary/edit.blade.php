@@ -18,19 +18,9 @@
     <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" method="POST" action="/diary/{{$form->id}}">
       @csrf
       @method('PUT')
-      <div class="sm:col-span-2">
-        <label for="title" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">タイトル</label>
-        <input name="title" class="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" value="{{$form->title}}" />
-      </div>
-
-      <div class="sm:col-span-2">
-        <label for="content" class="mb-2 inline-block text-sm text-gray-800 sm:text-base">本文</label>
-        <textarea name="content" class="h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring">{{$form->content}}</textarea>
-      </div>
-
-      <div class="flex items-center justify-between sm:col-span-2">
-        <button class="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">更新</button>
-      </div>
+      <x-diary_form :form="$form">
+        更新
+      </x-diary_form>
     </form>
   </div>
 </div>
