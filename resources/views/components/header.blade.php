@@ -23,11 +23,10 @@
       @else
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
-          <button @click="open = !open" class="flex flex-row items-center w-full bg-transparent rounded-full md:w-auto md:inline hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-            <div class="w-14 h-14 rounded-full inline-flex items-center justify-center bg-gray-200 hover:bg-gray-300">
-              <img src="{{ asset(Auth::user()->image) }}" alt="">
-            </div>
+          <button @click="open = !open" >
+              <img src="{{ asset(Auth::user()->image) }}" alt="" class="w-16 h-16 rounded-full inline-flex items-center justify-center bg-gray-200 hover:bg-gray-300">
           </button>
+          
           <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
             <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
               <a href="/profile" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">プロフィール</a>
