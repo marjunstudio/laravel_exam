@@ -10,29 +10,10 @@
       </div>
       
       {{-- 日記検索フォーム --}}
-      @component('components.search_form', ['items' => $items, 'keyword' => $keyword])
-      @endcomponent
+      <x-search_form :items="$items" :keyword="$keyword" />
 
       {{-- 日記一覧表示 --}}
-      <section class="text-gray-600 body-font overflow-hidden">
-        <div class="container px-5 p-4 mx-auto">
-          <div class="-my-8 divide-y-2 divide-gray-100">
-            @foreach ($items as $item)
-            <div class="py-6 flex flex-wrap md:flex-nowrap">
-              <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                <span class="font-semibold title-font text-gray-700">{{$item->user->name}}</span>
-              </div>
-              <div class="md:flex-grow">
-                <a href="{{ route('diary.show', ['id'=>$item->id]) }}">
-                  <h3 class="text-2xl font-medium text-gray-900 title-font mb-2 hover:text-blue-400">{{$item->title}}</h3>
-                </a>
-                <p class="leading-relaxed">{{$item->content}}</p>
-              </div>
-            </div>
-            @endforeach
-          </div>
-        </div>
-      </section>
+      <x-diary_index :items="$items" />
     </div>
   </div>
 @endsection
