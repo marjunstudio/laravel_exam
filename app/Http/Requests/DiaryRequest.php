@@ -24,6 +24,7 @@ class DiaryRequest extends FormRequest
 		return [
 			'title.required' => 'タイトルを入力してください。',
 			'content.required' => '本文を入力してください。',
+			'content.max' => '本文は200文字以内で入力してください。',
 			'title.min' => 'タイトルは3文字以上で入力してください。',
 		];
 	}
