@@ -42,3 +42,6 @@
 
 ### ■実装予定の機能
 - 管理者権限
+
+### ■ER図
+[![Image from Gyazo](https://i.gyazo.com/115b1cb8d3a01e9f6d5ccf56601b9917.jpg)](https://gyazo.com/115b1cb8d3a01e9f6d5ccf56601b9917)
