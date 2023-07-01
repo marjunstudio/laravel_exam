@@ -17,11 +17,11 @@
 				@csrf
 				<div class="mb-4">        
 					<label for="name" class="block text-gray-700 text-sm font-bold mb-2">ユーザー名</label>
-					<input id="name" type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" name="name" required autocomplete="name" autofocus>
+					<input id="name" type="text" value="{{ old('name') }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" name="name" required autocomplete="name" autofocus>
 				</div>	
 				<div class="mb-4">        
 					<label for="email" class="block text-gray-700 text-sm font-bold mb-2">メールアドレス</label>
-					<input id="email" type="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" name="email" required autocomplete="email" autofocus>
+					<input id="email" type="email" value="{{ old('email') }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" name="email" required autocomplete="email" autofocus>
 				</div>
 				<div class="mb-4">       
 					<label for="password"class="block text-gray-700 text-sm font-bold mb-2">パスワード</label>
