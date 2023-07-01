@@ -18,7 +18,7 @@ class Diary extends Model
 	public static $rules = array(
 		'title' => 'required|min:3',
 		'content' => 'required|max:200',
-		'user_id' => 'requierd',
+		'user_id' => 'requierd|integer|exists:users,id',
 	);
 
 	use HasFactory;
