@@ -30,17 +30,14 @@
       </div>
       {{-- ナビバー --}}
       <div class="mt-6 md:flex md:items-center md:justify-between">
-          <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
-            <div class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300">
-              <a href="/dashboard/user">ユーザー</a> 
-              </div>
-
-              <div class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
-                <a href="/dashboard/diary">日記</a> 
-              </div>
+        <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+          <div class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 bg-gray-100 sm:text-sm dark:bg-gray-800 dark:text-gray-300">
+            <a href="/dashboard/user">ユーザー</a> 
           </div>
 
-        <div class="relative flex items-center mt-4 md:mt-0">
+          <div class="px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">
+            <a href="/dashboard/diary">日記</a> 
+          </div>
         </div>
       </div>
 
@@ -51,31 +48,35 @@
               {{-- テーブル --}}
               <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-gray-800">
-                    <tr>
-                      <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        ID
-                      </th>
+                  <tr>
+                    <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      ID
+                    </th>
 
-                      <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        ユーザー名
-                      </th>
+                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      ユーザー名
+                    </th>
 
-                      <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        メールアドレス
-                      </th>
+                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      メールアドレス
+                    </th>
 
-                      <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        パスワード
-                      </th>
+                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      プロフィール画像
+                    </th>
 
-                      <th scope="col" class="relative py-3.5 px-4">
-                        <span class="sr-only">Edit</span>
-                      </th>
+                    <th scope="col" class="px-10 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                      管理者権限
+                    </th>
 
-                      <th scope="col" class="relative py-3.5 px-4">
-                          <span class="sr-only">Destroy</span>
-                      </th>
-                    </tr>
+                    <th scope="col" class="relative py-3.5 px-4">
+                      <span class="sr-only">Edit</span>
+                    </th>
+
+                    <th scope="col" class="relative py-3.5 px-4">
+                        <span class="sr-only">Destroy</span>
+                    </th>
+                  </tr>
                 </thead>
                 @foreach ($items as $item)
                   <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -85,7 +86,7 @@
                           <h2 class="font-medium text-gray-800 dark:text-white ">{{$item->id}}</h2>
                         </div>
                       </td>
-                      <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
+                      <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
                         <div>
                           <h2 class="font-medium text-gray-800 dark:text-white ">{{$item->name}}</h2>
                         </div>
@@ -97,7 +98,12 @@
                       </td>
                       <td class="px-4 py-4 text-sm whitespace-nowrap">
                         <div class="flex items-center">
-                          <h4 class="text-gray-700 dark:text-gray-200">{{$item->password}}</h4>
+                          <h4 class="text-gray-700 dark:text-gray-200">{{$item->image}}</h4>
+                        </div>
+                      </td>
+                      <td class="px-10 py-4 text-sm whitespace-nowrap">
+                        <div class="flex items-center">
+                          <h4 class="text-gray-700 dark:text-gray-200">{{$item->is_admin}}</h4>
                         </div>
                       </td>
                       <td class="px-4 py-4 text-sm whitespace-nowrap">
