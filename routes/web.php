@@ -44,6 +44,6 @@ Route::get('profile/{id}/edit', [UserController::class, 'edit'])->middleware('au
 Route::put('profile/{id}', [UserController::class, 'update'])->middleware('auth')->name('user.update');
 
 // ダッシュボード
-Route::get('dashboard/user', [DashboardController::class, 'user_index'])->name('dashboard.user_index');
-Route::get('dashboard/diary', [DashboardController::class, 'diary_index'])->name('dashboard.diary_index');
+Route::get('dashboard/user', [DashboardController::class, 'user_index'])->middleware('admin')->name('dashboard.user_index');
+Route::get('dashboard/diary', [DashboardController::class, 'diary_index'])->middleware('admin')->name('dashboard.diary_index');
 
