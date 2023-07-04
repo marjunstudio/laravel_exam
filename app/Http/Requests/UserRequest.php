@@ -24,7 +24,7 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:50',
             'email' => 'required|string|email:strict,dns,spoof|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed'
+            'password' => 'required|string|min:8|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'
         ];
     }
 
@@ -38,6 +38,7 @@ class UserRequest extends FormRequest
             'password.min' => 'パスワードは８文字以上で入力してください。',
             'password.max' => 'パスワードは255文字以内で入力してください。',
             'password.confirmed' => 'パスワードが一致しません。',
+            'password.regex' => 'パスワードは少なくとも1つの小文字、1つの大文字、1つの数字を含める必要があります'
 		];
 	}
 }

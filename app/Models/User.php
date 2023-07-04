@@ -48,6 +48,6 @@ class User extends Authenticatable
 	public static $rules = array(
         'name' => 'required|string|min:3|max:50',
         'email' => 'required|string|email:strict,dns,spoof|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed'
+        'password' => 'required|string|min:8|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'
 	);
 }
