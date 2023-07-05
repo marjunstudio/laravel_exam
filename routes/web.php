@@ -20,30 +20,34 @@ Route::get('/', function () {
     return view('home.static');
 })->middleware('guest');;
 
-
+// 管理者のみアクセス可能
+Route::middleware('admin')->group(function() {
+    // ダッシュボード
+    Route::get('dashboard/user', [DashboardController::class, 'user_index'])->name('dashboard.user_index');
+    Route::get('dashboard/diary', [DashboardController::class, 'diary_index'])->name('dashboard.diary_index');
+    // CSVのインポート・エクスポート
+    Route::get('/diary/csv-export', [DiaryController::class, 'csvExport'])->name('diary_csv.export');
+    Route::post('/diary/csv-import', [DiaryController::class, 'csvImport'])->name('diary_csv.import');
+    Route::get('/user/csv-export', [UserController::class, 'csvExport'])->name('user_csv.export');
+    Route::post('/user/csv-import', [UserController::class, 'csvImport'])->name('user_csv.import');
+});
 
 // Diary関係
-// Laravel Excel用
-Route::get('/diary/csv-export', [DiaryController::class, 'csvExport'])->name('diary_csv.export');
-Route::post('/diary/csv-import', [DiaryController::class, 'csvImport'])->name('diary_csv.import');
+Route::controller(DiaryController::class)->middleware('auth')->group(function() {
+    Route::get('diary/create', 'create')->name('diary.create');
+    Route::post('diary', 'store')->name('diary.store');
+    Route::get('diary/{id}/edit', 'edit')->name('diary.edit');
+    Route::put('diary/{id}', 'update')->name('diary.update');
+    Route::delete('diary/{id}', 'destroy')->name('diary.destroy');
+});
 
 Route::get('diary', [DiaryController::class, 'index'])->name('diary.index');
-Route::get('diary/create', [DiaryController::class, 'create'])->middleware('auth')->name('diary.create');
-Route::post('diary', [DiaryController::class, 'store'])->middleware('auth')->name('diary.store');
 Route::get('diary/{id}', [DiaryController::class, 'show'])->name('diary.show');
-Route::get('diary/{id}/edit', [DiaryController::class, 'edit'])->middleware('auth')->name('diary.edit');
-Route::put('diary/{id}', [DiaryController::class, 'update'])->middleware('auth')->name('diary.update');
-Route::delete('diary/{id}', [DiaryController::class, 'destroy'])->middleware('auth')->name('diary.destroy');
 Route::get('search', [DiaryController::class, 'index'])->name('diary.search');
 
 // User関係
-Route::get('/user/csv-export', [UserController::class, 'csvExport'])->name('user_csv.export');
-Route::post('/user/csv-import', [UserController::class, 'csvImport'])->name('user_csv.import');
-Route::get('profile', [UserController::class, 'profile'])->middleware('auth')->name('user.profile');
-Route::get('profile/{id}/edit', [UserController::class, 'edit'])->middleware('auth')->name('user.edit');
-Route::put('profile/{id}', [UserController::class, 'update'])->middleware('auth')->name('user.update');
-
-// ダッシュボード
-Route::get('dashboard/user', [DashboardController::class, 'user_index'])->middleware('admin')->name('dashboard.user_index');
-Route::get('dashboard/diary', [DashboardController::class, 'diary_index'])->middleware('admin')->name('dashboard.diary_index');
-
+Route::controller(UserController::class)->middleware('auth')->group(function() {
+    Route::get('profile', 'profile')->name('user.profile');
+    Route::get('profile/{id}/edit', 'edit')->name('user.edit');
+    Route::put('profile/{id}', 'update')->name('user.update');
+});

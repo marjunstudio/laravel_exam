@@ -46,7 +46,7 @@ class DiaryController extends Controller
 
 		return redirect()
 			->route('diary.show', ['id' => $diary->id])
-			->with('msg', '日記を投稿しました。')
+			->with('msg', '日記を投稿しました。')->with('type', 'success')
 			->withInput();
 	}
 
@@ -69,7 +69,7 @@ class DiaryController extends Controller
 	{
 		$diary = Diary::find($request->id);
 		$diary->fill($request->validated())->save();
-		return redirect()->route('diary.show', ['id' => $diary->id])->with('msg', '日記を更新しました。');
+		return redirect()->route('diary.show', ['id' => $diary->id])->with('msg', '日記を更新しました。')->with('type', 'success');
 	}
 
 	// 日記削除処理
@@ -78,7 +78,7 @@ class DiaryController extends Controller
 		$diary = Diary::find($request->id);
     $diary->delete();
 
-		return redirect()->route('diary.index')->with('msg', '日記を削除しました。');
+		return redirect()->route('diary.index')->with('msg', '日記を削除しました。')->with('type', 'success');
 	}
 
 	// CSVをエクスポート
@@ -90,6 +90,6 @@ class DiaryController extends Controller
 	public function csvImport(Request $request){
 		$file = $request->file('file');
 		Excel::import(new DiariesImport, $file);
-    return redirect('profile')->with('msg', 'CSVファイルをインポートしました。');
+    return redirect('profile')->with('msg', 'CSVファイルをインポートしました。')->with('type', 'success');
 	}
 }
