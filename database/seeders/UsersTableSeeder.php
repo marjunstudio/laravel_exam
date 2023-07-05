@@ -12,6 +12,14 @@ class UsersTableSeeder extends Seeder
         // サンプルユーザーデータを生成
         $users = [
             [
+                'name' => '管理人',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('Adminkanri1'),
+                'is_admin' => 'true',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'name' => '山田 太郎',
                 'email' => 'yamada@gmail.com',
                 'password' => Hash::make('password'),
