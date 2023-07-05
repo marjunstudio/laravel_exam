@@ -27,7 +27,7 @@
 
         <div class="mb-4"> 
           <label for="image" class="block text-gray-700 text-sm font-bold mb-2">アイコン</label>
-          <input id="image" type="file" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" value="{{ $user->image }}" name="image" required autocomplete="image" autofocus>
+          <input id="image" type="file" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" value="{{ $user->image }}" name="image" autocomplete="image" autofocus>
         </div>
 
       <button
