@@ -44,7 +44,7 @@ class UserController extends Controller
 		}
 
     $user->save();
-		return redirect()->route('user.profile', ['id' => $user->id])->with('msg', 'プロフィールを更新しました。');
+		return redirect()->route('user.profile', ['id' => $user->id])->with('msg', 'プロフィールを更新しました。')->with('type', 'success');
 	}
 
 	// CSVをエクスポート
@@ -58,6 +58,6 @@ class UserController extends Controller
 	{
 		$file = $request->file('file');
 		Excel::import(new UsersImport, $file);
-		return redirect('profile')->with('msg', 'CSVファイルをインポートしました。');
+		return redirect('profile')->with('msg', 'CSVファイルをインポートしました。')->with('type', 'success');
 	}
 }
