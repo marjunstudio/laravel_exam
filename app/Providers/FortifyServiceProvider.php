@@ -27,7 +27,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse {
             public function toResponse($request)
             {
-                return redirect('diary')->with('msg', 'ログアウトしました。');
+                return redirect('diary')->with('msg', 'ログアウトしました。')->with('type', 'success');
             }
         });
 
@@ -35,7 +35,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->instance(LoginResponse::class, new class implements LoginResponse {
             public function toResponse($request)
             {
-                return redirect('diary')->with('msg', 'ログインしました。');
+                return redirect('diary')->with('msg', 'ログインしました。')->with('type', 'success');
             }
         });
     }
