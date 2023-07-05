@@ -32,7 +32,7 @@
               <a href="/profile" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">プロフィール</a>
               
               {{-- 管理者ユーザーの場合表示 --}}
-              @if (Auth::user()->is_admin == 'true')
+              @if (Auth::user()->is_admin == true)
                 <a href="{{ route('dashboard.user_index') }}" class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">管理画面</a>
               @endif
 
